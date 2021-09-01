@@ -6,18 +6,17 @@
 //
 
 import SwiftUI
+import AVFoundation
 
-var columns: [GridItem] = [GridItem(.flexible())
-                           , GridItem(.flexible())
-                           , GridItem(.flexible())
-                            ]
 
 struct ContentView: View {
     var columns: [GridItem] = [GridItem(.flexible())
                                , GridItem(.flexible())
                                , GridItem(.flexible())
                                 ]
-    var moves:[Move] = [nil, nil, nil, nil, nil, nil, nil, nil, nil]
+    @State private var moves: [Move?] = [nil, nil, nil, nil, nil, nil, nil, nil, nil]
+    @State private var disableTap: Bool = false
+    
     var body: some View {
         ZStack {
             BackgroundView()
@@ -36,19 +35,46 @@ struct ContentView: View {
                                     .frame(width: diameter, height: diameter)
                                     .opacity(0.8)
                                     .foregroundColor(Color.white)
-                                Image(systemName:"xmark")
+                                Image(systemName:moves[i]?.indicator ?? "")
                                     .resizable()
                                     .frame(width: diameter * 0.5, height: diameter * 0.5)
                                     
+                            }
+                            .onTapGesture {
+                                if isFree(moves: moves, index: i) {
+                                    moves[i] = Move(player: .human, boardIndex: i)
+                                    disableTap = true
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                        let computerIndex = computeComputerIndex(moves: moves)
+                                        moves[computerIndex] = Move(player: .computer
+                                                        , boardIndex: computerIndex)
+                                        disableTap = false
+                                    }
+                                }
                             }
                         }
                     }
                     Spacer()
                 }
                 .padding()
+                .disabled(disableTap)
             }
         }
     }
+    
+    func isFree(moves: [Move?], index: Int) -> Bool {
+        return (moves[index] == nil)
+    }
+    
+    
+    func computeComputerIndex(moves: [Move?]) -> Int {
+        var computerIndex = Int.random(in: 0..<9)
+        while (!isFree(moves: moves, index: computerIndex)) {
+            computerIndex = Int.random(in: 0..<9)
+        }
+        return computerIndex
+    }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -88,4 +114,7 @@ enum Player {
 struct Move {
     let player: Player
     let boardIndex: Int
+    var indicator:String {
+        return player == .human ? "xmark" : "circle"
+    }
 }
