@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE2F88D126DF5DA600D19C29 /* click.aif in Resources */ = {isa = PBXBuildFile; fileRef = DE2F88CF26DF5D2700D19C29 /* click.aif */; };
+		DE2F88D626E1376700D19C29 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2F88D526E1376700D19C29 /* AlertView.swift */; };
 		DEB5A5C026DCEC4B005FBD40 /* TicTacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB5A5BF26DCEC4B005FBD40 /* TicTacApp.swift */; };
 		DEB5A5C226DCEC4B005FBD40 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB5A5C126DCEC4B005FBD40 /* ContentView.swift */; };
 		DEB5A5C426DCEC58005FBD40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEB5A5C326DCEC58005FBD40 /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DE2F88CF26DF5D2700D19C29 /* click.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = click.aif; sourceTree = "<group>"; };
+		DE2F88D526E1376700D19C29 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		DEB5A5BC26DCEC4B005FBD40 /* TicTac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEB5A5BF26DCEC4B005FBD40 /* TicTacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacApp.swift; sourceTree = "<group>"; };
 		DEB5A5C126DCEC4B005FBD40 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -33,6 +37,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DE2F88D326DF63E800D19C29 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				DE2F88CF26DF5D2700D19C29 /* click.aif */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		DEB5A5B326DCEC4B005FBD40 = {
 			isa = PBXGroup;
 			children = (
@@ -52,11 +64,13 @@
 		DEB5A5BE26DCEC4B005FBD40 /* TicTac */ = {
 			isa = PBXGroup;
 			children = (
+				DE2F88D326DF63E800D19C29 /* Sounds */,
 				DEB5A5BF26DCEC4B005FBD40 /* TicTacApp.swift */,
 				DEB5A5C126DCEC4B005FBD40 /* ContentView.swift */,
 				DEB5A5C326DCEC58005FBD40 /* Assets.xcassets */,
 				DEB5A5C826DCEC58005FBD40 /* Info.plist */,
 				DEB5A5C526DCEC58005FBD40 /* Preview Content */,
+				DE2F88D526E1376700D19C29 /* AlertView.swift */,
 			);
 			path = TicTac;
 			sourceTree = "<group>";
@@ -126,6 +140,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE2F88D126DF5DA600D19C29 /* click.aif in Resources */,
 				DEB5A5C726DCEC58005FBD40 /* Preview Assets.xcassets in Resources */,
 				DEB5A5C426DCEC58005FBD40 /* Assets.xcassets in Resources */,
 			);
@@ -140,6 +155,7 @@
 			files = (
 				DEB5A5C226DCEC4B005FBD40 /* ContentView.swift in Sources */,
 				DEB5A5C026DCEC4B005FBD40 /* TicTacApp.swift in Sources */,
+				DE2F88D626E1376700D19C29 /* AlertView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
