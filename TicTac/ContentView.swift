@@ -60,6 +60,7 @@ struct ContentView: View {
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                         let computerIndex = computeComputerIndex(moves: moves)
                                         moves[computerIndex] = Move(player: .computer, boardIndex: computerIndex)
+                                        disableTap = false
                                         if computeWin(moves: moves, player: .computer) {
                                             alertItem = AlertItem(title: Text("The Klute beats you")
                                                                   , message: Text("You'll die!")
@@ -74,7 +75,6 @@ struct ContentView: View {
                                             )
                                             return
                                         }
-                                        disableTap = false
                                     }
                                 }
                             }
